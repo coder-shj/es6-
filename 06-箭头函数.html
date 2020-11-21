@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //箭头函数  基本语法 参数=>函数体
+
+    //传统方式创建方法
+    var f1 = function (m) {
+      return m;
+    }
+
+    //箭头函数创建方法
+    var f2 = m => m;
+
+    console.log(f1(4));
+
+    console.log(f2(5));
+
+    //复杂些的方法
+    var f3 = function (a, b) {
+      return a + b;
+    }
+
+    //箭头函数简化
+    var f4 = (a, b) => a + b;
+
+    console.log(f3(5, 6));
+
+    console.log(f4(7, 8));
+
+    //当函数体中有多行代码时
+    const f5 = () => {
+      console.log("这是一个打印");
+      console.log("这是第二个打印");
+    }
+
+    f5();
+
+    const demo = () => console.log("这是一行");
+    demo();
+
+    //什么时候函数使用比较多：当函数作为参数时
+    // setTimeout(function() {
+    //     console.log(this);  //返回了window
+    // },1000)
+
+    // setTimeout(() => {
+    //     console.log(this);  //返回了window
+    // },1000)
+
+
+    //问题：箭头函数中的this是如何查找的。
+    //答：向外层作用域中，一层层查找this，知道有this的定义。
+    // const obj = {
+    //   aaa() {
+    //     setTimeout(function () {
+    //       console.log(this);  //返回了window
+    //     }, 1000);
+    //     console.log("sad" + this);  
+    //     setTimeout(() => {
+    //       console.log(this);  //返回了obj对象
+    //     }, 1000);
+    //   }
+    // }
+
+    // obj.aaa();
+
+    const obj = {
+      aaa() {
+        setTimeout(function () {
+          setTimeout(function () {
+            console.log(this);  //window
+          });
+
+          setTimeout(() => {
+            console.log(this);  //window
+          });
+        });
+
+
+        setTimeout(() => {
+          setTimeout(function () {
+            console.log(this);  //window
+          });
+
+          setTimeout(() => {
+            console.log(this);  //obj
+          });
+        });
+      }
+    }
+
+    obj.aaa();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //注意一：一旦给const修饰的标识符复制后，不能修改
+        // const name = 'join';
+        // name = 'tom';
+        // console.log(name)
+
+        //注意二：使用const定义标识符，必须进行赋值
+        // const name;
+
+        //注意三：常量的含义是指向的对象不能进行修改，但是可以改变对象内部的属性
+        const obj = {  //内部存的是地址  改其内属性值obj不会受到改变
+            name : 'tom',
+            age : 5,
+            height : 1.5
+        }
+        console.log(obj);
+
+        obj.name = 'join';
+        obj.age = 10;
+        obj.height = 1.8;
+        console.log(obj)
+
+        //下面是错误修改：
+        // let a = {
+        //     name : 'kobe',
+        //     age : 37,
+        //     height : 1.80
+        // }
+        // obj = a;
+    </script>
+</body>
+</html>

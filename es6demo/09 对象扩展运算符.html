@@ -1,0 +1,15 @@
+<script>
+    //1.定义对象
+    let person1 = {name:"lucy",age:20};
+    //2.es6拷贝对象
+    let person2 = {...person1};
+
+    console.log(person2);  //可能报错：Uncaught SyntaxError:Unexpected token ...  因为浏览器版本较低
+
+    //合并对象
+    let age={age:22};
+    let name={xingm:"tom"};
+    let person3={...age,...name};
+    console.log(person3);
+
+</script>

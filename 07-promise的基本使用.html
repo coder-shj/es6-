@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //1、使用setTimeout
+    // setTimeout(() => {
+    //   console.log('Hello world')
+    // }, 1000);
+
+    //promise中需要传入一个参数，参数为函数(resolve, reject)
+    //resolve和reject本身又是函数
+    //链式编程 可以使代码看起来更优雅，易于维护，避免回调地狱的产生
+    // new Promise((resolve, reject) => {
+    //   //模拟第一次网络请求的代码
+    //   setTimeout(() => {
+    //     resolve()
+    //   }, 1000);
+    // }).then(() => {
+    //   //第一次处理的代码
+    //   console.log('Hello world')
+    //   console.log('Hello world')
+    //   console.log('Hello world')
+
+    //   return new Promise((resolve, reject) => {
+    //     //模拟第二次网络请求的代码
+    //     setTimeout(() => {
+    //      resolve('Hello Vuejs')  //resolve中何以含有参数，对应的then中也有相应的参数
+    //     }, 1000);
+    //   })
+    // }).then((data) => {
+    //   //第二次处理的代码
+    //   console.log(data)
+    //   console.log(data)
+    //   console.log(data)
+
+    //   return new Promise((resolve, reject) => {
+    //     //模拟第三次网络请求的代码
+    //     setTimeout(() => {
+    //       resolve()
+    //     }, 1000);
+    //   })
+    // }).then(() => {
+    //   //第三次处理的代码
+    //   console.log('Hello python')
+    //   console.log('Hello python')
+    //   console.log('Hello python')
+
+    //   return new Promise((resolve, reject) => {
+    //     //模拟第四次网络请求的代码
+    //     setTimeout(() => {
+    //       resolve()
+    //     }, 1000);
+    //   })
+    // }).then(() => {
+    //   //第四次处理的代码
+    //   console.log('Hello C++')
+    //   console.log('Hello C++')
+    //   console.log('Hello C++')
+    // })
+
+    // 什么情况下用到Promise？
+    // 一般情况下时有异步操作时，使用Promise对这个异步操作进行封装
+    // new -> 构造函数(1、保存了一些状态信息  2、执行传入的函数)
+    // 执行回调函数是，会传入两个参数，resolve，reject本身又是函数
+    // new Promise((resolve, reject) => {
+    //   //模拟网络请求
+    //   setTimeout(() => {
+    //     //请求成功时调用resolve，执行代码在then中
+    //     // resolve()
+
+    //     //请求失败时调用reject，执行代码在reject中
+    //     reject()
+    //   }, 1000);
+    // }).then(() => {
+
+    // }).catch(() => {
+
+    // })
+
+    // Promise中有三种状态
+    // 一.pending: 等待状态,比如正在及逆行网络请求,或者定时器没到时间.
+    // 二.fulfull: 满足状态,当我们主动回调了resolve时,处于该状态,并且回调.then()
+    // 三.reject: 拒绝状态,当我们主动毁掉了reject时,就该处于该状态,并且回调.catch()
+
+    // Promise的另一种写法
+    // new Promise((resolve, reject) => {
+    //   setTimeout(() => {
+    //     // resolve('hello I an right')
+    //     reject('error')
+    //   }, 1000);
+    // }).then(data => {  //then中有两个函数,第一个为resolve  第二个为reject
+    //   console.log(data);
+    // },err => {
+    //   console.log(err);
+    // })
+
+    
+  </script>
+</body>
+</html>

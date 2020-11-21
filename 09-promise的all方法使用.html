@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // all内的参数是一个可迭代的参数
+    Promise.all([
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('resoult1')
+        }, 1000);
+
+      //   $.ajax({
+      //     url: 'url1',
+      //     success: function (data) {
+      //       resolve(data)
+      //     }
+      //  })
+      }),
+      new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve('resoult1')
+        }, 1000);
+
+        // $.ajax({
+        //   url: 'url2',
+        //   success: function (data) {
+        //     resolve(data)
+        //   }
+        // })
+      })
+    ]).then(results => {
+      // results //results为一个数组,下表为0时代表第一个网络请求,以此类推.
+      console.log(results);
+    })
+  </script>
+</body>
+</html>
